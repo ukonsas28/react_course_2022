@@ -16,3 +16,10 @@ code {
   justify-content: space-between;
   height: 60px;
 }
+
+.header {
+  background-color: blue;
+  font-size: 40px;
+}
+
+

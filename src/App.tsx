@@ -3,11 +3,6 @@ import './App.css';
 import MainContainer from './containers/MainContainer';
 import AuthContainer from './containers/AuthContainer';
 
-const App = () => (
-  <div className="wrapper">
-    <MainContainer />
-    <AuthContainer />
-  </div>
-);
+const App = () => <MainContainer />;
 
 export default App;
