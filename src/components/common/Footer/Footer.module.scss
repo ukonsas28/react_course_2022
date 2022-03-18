@@ -1,4 +1,9 @@
+@import '../../../assets/style/vars.scss';
+
 .footer {
   grid-area: footer;
-  background-color: blueviolet;
+  background-color: $sub-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
