@@ -7,8 +7,8 @@ import PageWrapper from '../../common/PageWrapper';
 const AuthPage = () => (
   <PageWrapper>
     <Form title="Авторизация">
-      <Input title="Email" id="email" />
-      <Input title="Password" id="password" />
+      <Input title="Email" id="email" placeholder="Введите почту" />
+      <Input title="Password" id="password" placeholder="Введите пароль" />
       <Button title="Войти" onClick={() => console.log('auth')} />
     </Form>
   </PageWrapper>
