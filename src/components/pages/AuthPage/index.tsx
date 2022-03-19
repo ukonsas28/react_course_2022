@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../../common/Button';
 import Form from '../../common/Form';
 import Input from '../../common/Form/Input';
@@ -7,9 +7,25 @@ import PageWrapper from '../../common/PageWrapper';
 const AuthPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [hasError, setHasError] = useState(false);
   const submitHandler = () => {
-    console.log({ emailUser: email, password });
+    if (password.length > 10) {
+      setHasError(false);
+      console.log({ emailUser: email, password });
+    } else {
+      setHasError(true);
+      console.log('Error');
+    }
   };
+
+  useEffect(() => {
+    if (password.length > 10) {
+      setHasError(false);
+    } else if (password.length > 0) {
+      setHasError(true);
+    }
+  }, [password]);
+
   return (
     <PageWrapper>
       <Form title="Авторизация">
@@ -28,6 +44,12 @@ const AuthPage = () => {
           setValue={setPassword}
           type="password"
         />
+        {hasError && (
+          <div>
+            <span>Пароль должден быть больше 10 символов</span>
+          </div>
+        )}
+
         <Button title="Войти" onClick={submitHandler} />
       </Form>
     </PageWrapper>
