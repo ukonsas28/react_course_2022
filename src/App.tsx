@@ -1,15 +1,15 @@
 import React from 'react';
-import MainContainer from './containers/MainContainer';
+// import MainContainer from './containers/MainContainer';
+// import RegistrationContainer from './containers/RegistrationContainer';
 import AuthContainer from './containers/AuthContainer';
-import RegistrationContainer from './containers/RegistrationContainer';
 
 const App = () => {
   console.log('APP => start');
   return (
     <>
-      <MainContainer />
+      {/* <MainContainer /> */}
       <AuthContainer />
-      <RegistrationContainer />
+      {/* <RegistrationContainer /> */}
     </>
   );
 };
