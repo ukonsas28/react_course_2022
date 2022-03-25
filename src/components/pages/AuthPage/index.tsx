@@ -5,11 +5,11 @@ import Input from '../../common/Form/Input';
 import PageWrapper from '../../common/PageWrapper';
 
 const AuthPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState({ value: '', error: false });
+  const [password, setPassword] = useState({ value: '', error: false });
   const [hasError, setHasError] = useState(false);
   const submitHandler = () => {
-    if (password.length > 10) {
+    if (password.value.length > 10) {
       setHasError(false);
       console.log({ emailUser: email, password });
     } else {
@@ -19,9 +19,9 @@ const AuthPage = () => {
   };
 
   useEffect(() => {
-    if (password.length > 10) {
+    if (password.value.length > 10) {
       setHasError(false);
-    } else if (password.length > 0) {
+    } else if (password.value.length > 0) {
       setHasError(true);
     }
   }, [password]);
