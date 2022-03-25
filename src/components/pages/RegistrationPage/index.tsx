@@ -12,12 +12,24 @@ const RegistrationPage = () => {
   const [repeatPassword, setRepeatPassword] = useState({ value: '', error: false });
 
   const validation = () => {
+    if (!repeatPassword.value.length || !password.value.length) {
+      setPassword((prev) => ({ ...prev, error: true }));
+      setRepeatPassword((prev) => ({ ...prev, error: true }));
+      return false;
+    }
     if (repeatPassword.value !== password.value) {
       setPassword((prev) => ({ ...prev, error: true }));
       setRepeatPassword((prev) => ({ ...prev, error: true }));
-    } else {
-      setPassword((prev) => ({ ...prev, error: false }));
-      setRepeatPassword((prev) => ({ ...prev, error: false }));
+      return false;
+    }
+    setPassword((prev) => ({ ...prev, error: false }));
+    setRepeatPassword((prev) => ({ ...prev, error: false }));
+    return true;
+  };
+
+  const submitHandler = () => {
+    if (validation()) {
+      console.log('registration');
     }
   };
 
@@ -48,7 +60,7 @@ const RegistrationPage = () => {
           placeholder="Повторите пароль"
           validation={validation}
         />
-        <Button title="Регистрация" onClick={() => console.log('registration')} />
+        <Button title="Регистрация" onClick={submitHandler} />
       </Form>
     </PageWrapper>
   );

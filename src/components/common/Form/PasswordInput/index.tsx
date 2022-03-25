@@ -16,7 +16,7 @@ type PasswordInputPropsType = {
       error: boolean;
     }>
   >;
-  validation: () => void;
+  validation: () => boolean;
 };
 
 const PasswordInput = ({
