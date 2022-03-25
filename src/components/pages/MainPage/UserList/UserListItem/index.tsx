@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 type UserListItemPropsType = {
   name: string;
@@ -8,10 +9,12 @@ type UserListItemPropsType = {
 const UserListItem = ({ name, age }: UserListItemPropsType) => {
   useEffect(() => console.log('USER_LIST_ITEM - MOUNT'), []);
   return (
-    <li>
-      <h3>{name}</h3>
-      <p>{`${age} - лет`}</p>
-    </li>
+    <Link to={`${name}`}>
+      <li>
+        <h3>{name}</h3>
+        <p>{`${age} - лет`}</p>
+      </li>
+    </Link>
   );
 };
 

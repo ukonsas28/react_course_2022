@@ -27,32 +27,30 @@ const AuthPage = () => {
   }, [password]);
 
   return (
-    <PageWrapper>
-      <Form title="Авторизация">
-        <Input
-          title="Email"
-          id="email"
-          placeholder="Введите почту"
-          value={email}
-          setValue={setEmail}
-        />
-        <Input
-          title="Password"
-          id="password"
-          placeholder="Введите пароль"
-          value={password}
-          setValue={setPassword}
-          type="password"
-        />
-        {hasError && (
-          <div>
-            <span>Пароль должден быть больше 10 символов</span>
-          </div>
-        )}
+    <Form title="Авторизация">
+      <Input
+        title="Email"
+        id="email"
+        placeholder="Введите почту"
+        value={email}
+        setValue={setEmail}
+      />
+      <Input
+        title="Password"
+        id="password"
+        placeholder="Введите пароль"
+        value={password}
+        setValue={setPassword}
+        type="password"
+      />
+      {hasError && (
+        <div>
+          <span>Пароль должден быть больше 10 символов</span>
+        </div>
+      )}
 
-        <Button title="Войти" onClick={submitHandler} />
-      </Form>
-    </PageWrapper>
+      <Button title="Войти" onClick={submitHandler} />
+    </Form>
   );
 };
 

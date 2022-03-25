@@ -12,12 +12,12 @@ const MainPage = () => {
     setListVisible((prev) => !prev);
   };
   return (
-    <PageWrapper>
+    <>
       <h1>User List</h1>
       {listVisible ? <UserList data={data} /> : <h2>Список скрыт</h2>}
       {/* {listVisible && <UserList data={data} />} */}
       <Button title={listVisible ? 'Скрыть список' : 'Показать список'} onClick={handler} />
-    </PageWrapper>
+    </>
   );
 };
 export default MainPage;
