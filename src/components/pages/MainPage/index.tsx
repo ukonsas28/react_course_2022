@@ -8,8 +8,7 @@ const MainPage = () => {
   useEffect(() => console.log('MAIN_PAGE - MOUNT'), []);
 
   // const { state } = useLocation() as { state: { isOpen: boolean } };
-  const location = useLocation();
-  const mainState: { isOpen: boolean } = location.state as any;
+  const location: any = useLocation();
 
   const [listVisible, setListVisible] = useState(false);
   const handler = () => {
@@ -17,10 +16,10 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    if (mainState?.isOpen) {
+    if (location?.state?.isOpen) {
       setListVisible(true);
     }
-  }, [mainState?.isOpen]);
+  }, [location?.state?.isOpen]);
 
   return (
     <>
