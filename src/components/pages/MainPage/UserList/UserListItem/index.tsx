@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 type UserListItemPropsType = {
   name: string;
-  age: string;
 };
 
-const UserListItem = ({ name, age }: UserListItemPropsType) => {
+const UserListItem = ({ name }: UserListItemPropsType) => {
   useEffect(() => console.log('USER_LIST_ITEM - MOUNT'), []);
   return (
     <li>
