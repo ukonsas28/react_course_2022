@@ -1,12 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { ClearUserNameAction } from '../../../store/actions';
 import GetUserName from '../../../store/selectors';
 import Button from '../Button';
 import style from './Header.module.scss';
 
 const Header = () => {
   const name = useSelector(GetUserName);
+  const dispatch = useDispatch();
+
   return (
     <header className={style.header}>
       <h1>Header</h1>
@@ -44,7 +47,7 @@ const Header = () => {
         {name ? (
           <>
             <h2>{name}</h2>
-            <Button title="LOG_OUT" onClick={() => {}} />
+            <Button title="LOG_OUT" onClick={() => dispatch(ClearUserNameAction())} />
           </>
         ) : (
           'NO_AUTH'
