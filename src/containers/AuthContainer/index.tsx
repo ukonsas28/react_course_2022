@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import AuthPage from '../../components/pages/AuthPage';
-import GetUserName from '../../store/selectors';
+import GetUserName from '../../store/auth/selectors';
 
 const AuthContainer = () => {
   const name = useSelector(GetUserName);

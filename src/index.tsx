@@ -6,9 +6,9 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import App from './App';
-import userInfoReducer from './store/reducer';
+import rootReducer from './store';
 
-const store = createStore(userInfoReducer, composeWithDevTools(applyMiddleware()));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware()));
 
 ReactDOM.render(
   <React.StrictMode>

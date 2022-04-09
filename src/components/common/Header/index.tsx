@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { ClearUserNameAction } from '../../../store/actions';
-import GetUserName from '../../../store/selectors';
+import { ClearUserNameAction } from '../../../store/auth/actions';
+import GetUserName from '../../../store/auth/selectors';
 import Button from '../Button';
 import style from './Header.module.scss';
 
