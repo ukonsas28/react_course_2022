@@ -14,30 +14,9 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<PageWrapper />}>
-        <Route
-          index
-          element={
-            <AuthHOC>
-              <h1>MAIN PAGE</h1>
-            </AuthHOC>
-          }
-        />
-        <Route
-          path="users"
-          element={
-            <AuthHOC>
-              <MainContainer />
-            </AuthHOC>
-          }
-        />
-        <Route
-          path="users/:name"
-          element={
-            <AuthHOC>
-              <OneUserContainer />
-            </AuthHOC>
-          }
-        />
+        <Route index element={<h1>MAIN PAGE</h1>} />
+        <Route path="users" element={<MainContainer />} />
+        <Route path="users/:name" element={<OneUserContainer />} />
         <Route path="auth" element={<AuthContainer />} />
         <Route path="reg" element={<RegistrationContainer />} />
         <Route path="*" element={<h1>NOT FOUND</h1>} />

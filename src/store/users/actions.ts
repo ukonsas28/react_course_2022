@@ -6,9 +6,9 @@ export const UsersActionsType: UsersActionsTypeType = {
 };
 
 export const GetUsersAction = () => async (dispatch: any) => {
-  const users = await makeRequest({ url: '/character' });
+  const data = await makeRequest({ url: '/character' });
   dispatch({
     type: UsersActionsType.getUsers,
-    payload: users,
+    payload: data.results,
   });
 };
