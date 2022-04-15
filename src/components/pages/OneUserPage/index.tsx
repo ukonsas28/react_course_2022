@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../common/Button';
 
 type OneUserPagePropsType = {
@@ -7,9 +7,11 @@ type OneUserPagePropsType = {
 };
 
 const OneUserPage = ({ userInfo }: OneUserPagePropsType) => {
+  const { state } = useLocation();
   const navigate = useNavigate();
+
   const handler = () => {
-    navigate('/users');
+    navigate('/users', { state });
   };
 
   return userInfo?.id ? (

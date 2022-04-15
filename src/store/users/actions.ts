@@ -7,7 +7,7 @@ export const UsersActionsType: UsersActionsTypeType = {
   clearOneUser: 'CLEAR_ONE_USER',
 };
 
-export const GetUsersAction = (page = '1') => async (dispatch: any) => {
+export const GetUsersAction = (page: number) => async (dispatch: any) => {
   const data = await makeRequest({ url: '/character', params: { page } });
   dispatch({
     type: UsersActionsType.getUsers,
