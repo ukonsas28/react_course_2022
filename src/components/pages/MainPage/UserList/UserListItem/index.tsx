@@ -1,19 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import style from './UserListItem.module.scss';
 
 type UserListItemPropsType = {
-  name: string;
+  data: any;
 };
 
-const UserListItem = ({ name }: UserListItemPropsType) => {
-  useEffect(() => console.log('USER_LIST_ITEM - MOUNT'), []);
-  return (
-    <li>
-      <Link to={name}>
-        <h3>{name}</h3>
-      </Link>
-    </li>
-  );
-};
-
+const UserListItem = ({ data }: UserListItemPropsType) => (
+  <div className={style.wrapper}>
+    <Link to={`${data.id}`}>
+      <h3>{data.name}</h3>
+      <img src={data.image} alt={data.name} />
+    </Link>
+  </div>
+);
 export default UserListItem;

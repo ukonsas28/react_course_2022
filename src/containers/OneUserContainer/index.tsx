@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import OneUserPage from '../../components/pages/OneUserPage';
-import { data } from '../../helpers';
+import { ClearOneUserAction, GetOneUserAction } from '../../store/users/actions';
+import { getOneUser } from '../../store/users/selectors';
 
 const OneUserContainer = () => {
-  const { name } = useParams();
+  const { id } = useParams();
 
-  const user = data.find((el) => el.name === name);
+  const user = useSelector(getOneUser);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GetOneUserAction(id!));
+    return () => {
+      dispatch(ClearOneUserAction());
+    };
+  }, []);
 
   return <OneUserPage userInfo={user} />;
 };

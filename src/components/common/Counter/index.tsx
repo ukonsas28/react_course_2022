@@ -10,7 +10,7 @@ const Counter = (props: CounterPropsType) => {
   const [count, setCount] = React.useState(0);
   const [step, setStep] = React.useState(1);
 
-  console.log('render', title);
+  // console.log('render', title);
 
   const addHandler = () => {
     setCount(count + step);

@@ -1,4 +1,4 @@
 import { RootReducerType } from '../rootType';
 
-const getUsers = (state: RootReducerType) => state.users.data;
-export default getUsers;
+export const getUsers = (state: RootReducerType) => state.users.data.results;
+export const getOneUser = (state: RootReducerType) => state.users.oneUserData;

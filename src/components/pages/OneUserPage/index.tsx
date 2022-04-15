@@ -1,31 +1,34 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../common/Button';
 
 type OneUserPagePropsType = {
-  userInfo: { id: number; name: string; age: string } | undefined;
+  userInfo: any;
 };
 
 const OneUserPage = ({ userInfo }: OneUserPagePropsType) => {
-  console.log(userInfo);
-
   const navigate = useNavigate();
   const handler = () => {
-    navigate('/users', { state: { isOpen: true } });
+    navigate('/users');
   };
-  return (
+
+  return userInfo?.id ? (
     <>
-      <h1>USER INFO</h1>
-      <h2>{userInfo?.name}</h2>
-      <h2>{userInfo?.age}</h2>
+      <h1>{userInfo?.name}</h1>
       <br />
-      <Link to="/users" state={{ isOpen: true }}>
-        НА СПИСОК ПОЛЬЗОВАТЕЛЕЙ
-      </Link>
+      <ul>
+        <li>{userInfo?.status}</li>
+        <li>{userInfo?.species}</li>
+        <li>{userInfo?.gender}</li>
+        <li>{userInfo?.location?.name}</li>
+      </ul>
       <br />
-      <button type="button" onClick={handler}>
-        НА СПИСОК ПОЛЬЗОВАТЕЛЕЙ
-      </button>
+      <img src={userInfo?.image} alt={userInfo?.name} />
+      <br />
+      <Button title="НА СПИСОК ПОЛЬЗОВАТЕЛЕЙ" onClick={handler} />
     </>
+  ) : (
+    <p>LOADING</p>
   );
 };
 export default OneUserPage;
