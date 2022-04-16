@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { SetUserNameAction } from '../../../store/auth/actions';
 import Button from '../../common/Button';
 import Form from '../../common/Form';
 import Input from '../../common/Form/Input';
+
+const getTitle = () => {
+  for (let i = 0; i < 1000000000; i += 1) {
+    // hard logick
+  }
+  return 'Войти';
+};
 
 const AuthPage = () => {
   const dispatch = useDispatch();
@@ -11,7 +18,7 @@ const AuthPage = () => {
   const [password, setPassword] = useState('');
   const [hasError, setHasError] = useState(false);
 
-  const submitHandler = () => {
+  const submitHandler = useCallback(() => {
     if (password.length > 10) {
       setHasError(false);
       dispatch(SetUserNameAction(name));
@@ -20,7 +27,7 @@ const AuthPage = () => {
       setHasError(true);
       console.log('Error');
     }
-  };
+  }, [password]);
 
   useEffect(() => {
     if (password.length > 10) {
@@ -29,6 +36,8 @@ const AuthPage = () => {
       setHasError(true);
     }
   }, [password]);
+
+  const title = getTitle();
 
   return (
     <Form title="Авторизация">
