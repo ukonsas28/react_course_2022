@@ -27,15 +27,7 @@ const MainPage = ({ userData }: MainPagePropsType) => {
   return (
     <>
       <h1>User List</h1>
-      {userData.length ? (
-        <>
-          {listVisible ? <UserList data={userData} /> : <h2>Список скрыт</h2>}
-          {/* {listVisible && <UserList data={data} />} */}
-          <Button title={listVisible ? 'Скрыть список' : 'Показать список'} onClick={handler} />
-        </>
-      ) : (
-        <h1>LOADING</h1>
-      )}
+      <UserList data={userData} />
     </>
   );
 };

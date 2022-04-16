@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import UserListItem from './UserListItem';
+import style from './UserList.module.scss';
 
 type UserListPropsType = {
   data: { id: number; name: string; age: string }[];
@@ -18,12 +19,28 @@ const UserList = ({ data }: UserListPropsType) => {
     };
   }, []);
 
+  const ref = useRef<HTMLUListElement>(null);
+
+  console.log(ref.current);
+
+  const scrollToTop = () => {
+    ref.current?.scroll(0, 0);
+    if (ref.current) {
+      ref.current.style.backgroundColor = 'red';
+    }
+  };
+
   return (
-    <ul>
-      {data.map((el) => (
-        <UserListItem key={el.id} name={el.name} />
-      ))}
-    </ul>
+    <>
+      <ul ref={ref} className={style.wrapper}>
+        {data.map((el) => (
+          <UserListItem key={el.id} name={el.name} />
+        ))}
+      </ul>
+      <button type="button" onClick={scrollToTop}>
+        SCROLL TOP
+      </button>
+    </>
   );
 };
 
